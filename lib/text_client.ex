@@ -1,18 +1,9 @@
 defmodule TextClient do
   @moduledoc """
-  Documentation for TextClient.
+  Hangman game text client API
   """
 
-  @doc """
-  Hello world.
+  alias TextClient.Interact
 
-  ## Examples
-
-      iex> TextClient.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  defdelegate start, to: Interact
 end
