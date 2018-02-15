@@ -1,5 +1,5 @@
 defmodule TextClient.Interact do
-  defstruct game_service: nil, tally: nil, last_guess: ""
+  alias TextClient.State
 
   def start do
     Hangman.new_game()
@@ -7,7 +7,7 @@ defmodule TextClient.Interact do
   end
 
   defp setup_state(game) do
-    %__MODULE__{
+    %State{
       game_service: game,
       tally: Hangman.tally(game)
     }
