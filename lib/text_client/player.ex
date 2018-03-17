@@ -1,5 +1,5 @@
 defmodule TextClient.Player do
-  alias TextClient.State
+  alias TextClient.{State, Summary}
 
   def play(%State{tally: %{game_state: :good_guess}} = game) do
     continue_with_message(game, "Good guess!")
@@ -27,14 +27,10 @@ defmodule TextClient.Player do
 
   defp continue(game) do
     game
-    |> display
+    |> Summary.display()
     |> prompt
     |> make_move
     |> play
-  end
-
-  defp display(game) do
-    game
   end
 
   defp prompt(game) do
