@@ -13,8 +13,8 @@ defmodule TextClient.Player do
     continue_with_message(game, "You already tried that letter.")
   end
 
-  def play(%State{tally: %{state: :won}}) do
-    exit_with_message("Congratulations, you won!")
+  def play(%State{tally: %{state: :won, letters: letters}}) do
+    exit_with_message("Congratulations, you won! The word was '#{Enum.join letters}'.")
   end
 
   def play(%State{tally: %{state: :lost}}) do
